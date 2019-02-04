@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class name = "javame.model.bean.Department" table = "DEPARTMENT">
+      
+      <meta attribute = "class-description">
+         This class contains the employee detail. 
+      </meta>
+      
+      <id name = "depId" type = "int" column = "id">
+         <generator class="foreign">
+             <param name="property">emp</param>
+         </generator>
+      </id>
+      
+      <property name = "deptName" column = "dept_name" type = "string"/>
+      
+      <one-to-one name="emp" class="javame.model.bean.Employee"
+			constrained="true" />
+    </class>
+</hibernate-mapping>
